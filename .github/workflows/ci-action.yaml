@@ -84,7 +84,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: papada5838/gitops-infra
+          repository: papadat/gitops-infra
           ref: 'main'
           token: ${{ secrets.G_TOKEN }}
       - name: setup git config

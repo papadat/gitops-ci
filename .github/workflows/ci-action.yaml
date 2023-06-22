@@ -74,7 +74,7 @@ jobs:
             papada5838/reactapp-ci:${{ github.sha }} 
             ghcr.io/papada5838/reactapp-ci:${{ github.sha }}
           # build on feature branches, push only on main branch
-          push: ${{ github.ref == 'refs/heads/master' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -85,16 +85,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: imrishav/gitops-infra
-          ref: 'master'
+          repository: papada5838/gitops-infra
+          ref: 'main'
           token: ${{ secrets.G_TOKEN }}
       - name: setup git config
         run: |
-          git config --global user.email "rishav@live.co.uk"
-          git config --global user.name "imrishav"
+          git config --global user.email "papada.t@cdg.co.th"
+          git config --global user.name "papadat"
           echo ${{ github.sha }}
-          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
+          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/reactapp-ci:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
       - run: echo ${{ github }}
-      - run: git push origin master
+      - run: git push origin main

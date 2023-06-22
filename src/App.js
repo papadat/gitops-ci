@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className='App-logo' alt='logo' />
         <div style={{ fontSize: 30 }}>
           Version{' '}
-          <span style={{ color: 'red' }}>Third and FINAL Commit....!!!</span>
+          <span style={{ color: 'red' }}>Third and FINAL Commit....!!! this is a new Version of react</span>
         </div>
       </header>
     </div>
